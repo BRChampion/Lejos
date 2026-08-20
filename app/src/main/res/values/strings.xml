@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Lejos Signal Observer</string>
+    <string name="scan">Start scan</string>
+    <string name="stop">Stop scan</string>
+    <string name="empty_state">No signals observed yet. Start a scan to listen.</string>
+    <string name="permission_needed">Nearby-device and location access are needed to scan.</string>
+    <string name="observer_title">SIGNAL OBSERVER</string>
+    <string name="status_idle">Idle • Wi-Fi + BLE</string>
+    <string name="status_listening">Listening • Wi-Fi + BLE</string>
+    <string name="clear">Clear</string>
+    <string name="observation_counts">%1$d Wi-Fi • %2$d BLE</string>
+    <string name="observation_counts_empty">0 Wi-Fi • 0 BLE</string>
+    <string name="observation_summary">%1$s • %2$s • %3$d dBm</string>
+</resources>
