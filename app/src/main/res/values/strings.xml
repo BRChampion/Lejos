@@ -10,5 +10,6 @@
     <string name="clear">Clear</string>
     <string name="observation_counts">%1$d Wi-Fi • %2$d BLE</string>
     <string name="observation_counts_empty">0 Wi-Fi • 0 BLE</string>
+    <string name="observation_group_counts">%1$d Wi-Fi groups (%2$d radios) • %3$d BLE</string>
     <string name="observation_summary">%1$s • %2$s • %3$d dBm</string>
 </resources>

@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.lejos.manufacturer.BleCompanyResolver;
 import com.example.lejos.manufacturer.WifiOuiResolver;
+import com.example.lejos.grouping.WifiObservationGrouper;
 import com.example.lejos.model.SignalObservation;
 import com.example.lejos.scanner.AndroidBleSource;
 import com.example.lejos.scanner.AndroidWifiSource;
@@ -31,6 +32,7 @@ import java.util.Map;
 public final class MainActivity extends AppCompatActivity implements ObservationSource.Listener {
     private final Map<String, SignalObservation> observations = new LinkedHashMap<>();
     private final List<ObservationSource> sources = new ArrayList<>();
+    private final WifiObservationGrouper wifiGrouper = new WifiObservationGrouper();
     private ObservationAdapter adapter;
     private TextView statusView;
     private TextView countsView;
@@ -117,14 +119,19 @@ public final class MainActivity extends AppCompatActivity implements Observation
     }
 
     private void render() {
-        adapter.replace(observations.values());
-        int wifi = 0;
+        List<SignalObservation> grouped = wifiGrouper.group(observations.values());
+        adapter.replace(grouped);
+        int wifiRadios = 0;
+        int wifiGroups = 0;
         int ble = 0;
         for (SignalObservation item : observations.values()) {
-            if (item.getKind() == SignalObservation.Kind.WIFI) wifi++;
+            if (item.getKind() == SignalObservation.Kind.WIFI) wifiRadios++;
             if (item.getKind() == SignalObservation.Kind.BLE) ble++;
         }
-        countsView.setText(getString(R.string.observation_counts, wifi, ble));
+        for (SignalObservation item : grouped) {
+            if (item.getKind() == SignalObservation.Kind.WIFI) wifiGroups++;
+        }
+        countsView.setText(getString(R.string.observation_group_counts, wifiGroups, wifiRadios, ble));
     }
 
     @Override protected void onStop() {
