@@ -1,15 +1,17 @@
-# Above The Falls
+# Lejos
 
-A full-stack kayak rental website built with React and Django.
+An Android application for observing nearby wireless signals. Started working on this for personal use after wanting a similar app
+and seeing prices of $30+.
 
-The project is currently in development, with working booking logic for managing rental availability and reservations.
+Lejos currently scans for Wi-Fi and Bluetooth Low Energy (BLE) devices and displays information about detected signals and devices.
 
 ## Tech Stack
 
-- React
-- Django
-- PostgreSQL
+- Android
+- Kotlin
+- Wi-Fi scanning
+- Bluetooth Low Energy (BLE)
 
 ## Status
 
-Work in progress. Core booking functionality is operational, with additional customer and administrative features still being developed.
+Work in progress. Wi-Fi and BLE scanning are functional, with additional signal analysis and device identification features planned.
